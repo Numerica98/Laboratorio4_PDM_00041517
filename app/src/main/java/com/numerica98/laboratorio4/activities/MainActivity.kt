@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     fun initRecyclerView(){
         var viewManager = LinearLayoutManager(this)
-        var movieAdapter = MovieAdapter(movieList)
+        movieAdapter = MovieAdapter(movieList)
 
         movie_list_rv.apply {
             setHasFixedSize(true)
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
             val movieURL= NetworkUtils().buildSearchUrl(movieName)
 
             return try {
-                NetworkUtils().getResponseFRomHttpUrl(movieURL)
+                NetworkUtils().getResponseFromHttpUrl(movieURL)
             }catch (e: IOException){
                 ""
             }
@@ -76,6 +76,8 @@ class MainActivity : AppCompatActivity() {
                 }else{
                     Snackbar.make(main_ll, "No existe la película en la base", Snackbar.LENGTH_LONG).show()
                 }
+            }else{
+                Snackbar.make(main_ll, "Error en la conexión", Snackbar.LENGTH_LONG).show()
             }
         }
     }

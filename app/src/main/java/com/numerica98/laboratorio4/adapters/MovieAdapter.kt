@@ -34,8 +34,8 @@ class MovieAdapter(var movies: List<Movie>) : RecyclerView.Adapter<MovieAdapter.
                 .into(movie_image_cv)
             movie_title_cv.text = movie.Title
             movie_plot_cv.text = movie.Plot
-            movie_rate_cv.text = movie.imbdRating
-            movie_runtime_cv.text = movie.RunTime
+            movie_rate_cv.text = movie.imdbRating
+            movie_runtime_cv.text = movie.Runtime
         }
 
     }

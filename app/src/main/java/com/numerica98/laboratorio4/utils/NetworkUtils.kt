@@ -27,7 +27,7 @@ class NetworkUtils {
     }
 
     @Throws(IOException::class)
-    fun getResponseFRomHttpUrl(url:URL): String{
+    fun getResponseFromHttpUrl(url: URL):String{
         val urlConnection = url.openConnection() as HttpURLConnection
         try {
             val `in` = urlConnection.inputStream
@@ -36,13 +36,14 @@ class NetworkUtils {
             scanner.useDelimiter("\\A")
 
             val hasInput = scanner.hasNext()
-            return if (hasInput) {
+            return if(hasInput){
                 scanner.next()
-            } else {
+            }else{
                 ""
-            }finally {
-                urlConnection.disconnect()
             }
+        }finally {
+            urlConnection.disconnect()
         }
     }
+
 }
